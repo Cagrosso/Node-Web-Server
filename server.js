@@ -25,14 +25,14 @@ app.set("view engine", "hbs");
 // *-----------------*
 
 // creates new express middleware that creates or appends to a serverlog file
-app.use( (request, response, next) => {
+app.use((request, response, next) => {
     var now = new Date().toString();
 
     // demonstrates some of the values that are available from the passed in parameters
     var log = `#${now}: ${request.method} ${request.url}`
 
     fs.appendFile(`server.log`, log + '\n', (err) => {
-        if (err){
+        if (err) {
             console.log('Unable to append to file');
         }
     });
@@ -55,7 +55,7 @@ hbs.registerHelper('getCurrentYear', () => {
 });
 
 // another helper that capitalizes all text passed to it
-hbs.registerHelper('screamIt' , (text) => {
+hbs.registerHelper('screamIt', (text) => {
     return text.toUpperCase();
 })
 
