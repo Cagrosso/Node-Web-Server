@@ -5,7 +5,7 @@ const fs = require('fs');
 // This allows for us to run the app on heroku.com, a web hosting site for web apps
 // It uses the environment variables set by heroku to dynamically set the port through
 // which to access our app
-const port = process.env.PORT | 3000;
+const port = process.env.PORT || 3000;
 
 // Initialize express library
 var app = express();
