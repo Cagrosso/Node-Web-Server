@@ -2,6 +2,11 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// This allows for us to run the app on heroku.com, a web hosting site for web apps
+// It uses the environment variables set by heroku to dynamically set the port through
+// which to access our app
+const port = process.env.PORT | 3000;
+
 // Initialize express library
 var app = express();
 
@@ -87,6 +92,6 @@ app.get('/bad', (request, response) => {
 });
 
 // tells express to host this server at port 3000
-app.listen(3000, () => {
-    console.log("Server is up on localhost:3000");
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
