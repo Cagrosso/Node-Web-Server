@@ -71,7 +71,7 @@ app.get('/', (request, response) => {
 
     // uses the handlebars render engine and passes an object full of data that handlebars pages can access
     response.render("home.hbs", {
-        pageTitle: "Home Page",
+        pageTitle: "Home",
         welcomeMessage: "Welcome Dude!"
     });
 });
@@ -79,7 +79,13 @@ app.get('/', (request, response) => {
 // tells express to host the About page at localhost:3000/about
 app.get('/about', (request, response) => {
     response.render('about.hbs', {
-        pageTitle: "About Page",
+        pageTitle: "About",
+    });
+});
+
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs', {
+        pageTitle: "Projects"
     });
 });
 
